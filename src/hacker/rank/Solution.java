@@ -37,10 +37,19 @@ public class Solution {
         return frequency(s.substring(1, s.length()), v);
     }
 
+    public boolean checkifExists(Hashtable hashtable, char val) {
+        if (hashtable.get(val) == null)
+            return true;
+
+        return false;
+    }
+
+
     public void findFrequency(String temp) {
         Hashtable<Character, Integer> source = new Hashtable<Character, Integer>();
         for (int i = 0; i < temp.length(); i++) {
-            source.put(temp.charAt(i), frequency(temp, temp.charAt(i)));
+            if (checkifExists(source, temp.charAt(i)))
+                source.put(temp.charAt(i), frequency(temp, temp.charAt(i)));
         }
     }
 
