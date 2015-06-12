@@ -9,6 +9,9 @@ import java.util.Scanner;
  */
 public class Solution {
 
+    Hashtable<Character, Integer> source = new Hashtable<Character, Integer>();
+
+
     public int factorial(int n) {
         return n > 2 ? n * factorial(n - 1) : 1;
     }
@@ -46,7 +49,6 @@ public class Solution {
 
 
     public void findFrequency(String temp) {
-        Hashtable<Character, Integer> source = new Hashtable<Character, Integer>();
         for (int i = 0; i < temp.length(); i++) {
             if (checkifExists(source, temp.charAt(i)))
                 source.put(temp.charAt(i), frequency(temp, temp.charAt(i)));
