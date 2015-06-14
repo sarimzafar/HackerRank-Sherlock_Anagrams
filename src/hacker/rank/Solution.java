@@ -35,24 +35,21 @@ public class Solution {
         if (s.length() == 0)
             return 0;
         else if (s.charAt(0) == v)
-            return 1 + frequency(s.substring(0, s.length()), v);
+            return 1 + frequency(s.substring(1, s.length()), v);
 
         return frequency(s.substring(1, s.length()), v);
     }
 
-    public boolean checkifExists(Hashtable hashtable, char val) {
-        if (hashtable.get(val) == null)
-            return true;
-
-        return false;
-    }
-
-
     public void findFrequency(String temp) {
         for (int i = 0; i < temp.length(); i++) {
-            if (checkifExists(source, temp.charAt(i)))
+            if (!source.containsKey(temp.charAt(i)))
                 source.put(temp.charAt(i), frequency(temp, temp.charAt(i)));
         }
+    }
+
+    public void mainSoln(String temp)
+    {
+
     }
 
     public static void main(String[] a) throws StringIndexOutOfBoundsException {
