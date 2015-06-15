@@ -14,8 +14,7 @@ public class Solution {
         Scanner obj = new Scanner(System.in);
 
         permutations prm = new permutations();
-        distinct dst = new distinct();
-        Solution sln = new Solution();
+
 
         int c = obj.nextInt();
 
