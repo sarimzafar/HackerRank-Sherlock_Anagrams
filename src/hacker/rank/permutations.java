@@ -1,15 +1,23 @@
 package hacker.rank;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by sarim on 15-06-14.
  */
 public class permutations {
 
-    public static void permutation(String prefix, String str)
+    HashMap<String, String> hashMap = new HashMap<String, String>();
+
+
+    int count = 0;
+
+    public void permutation(String prefix, String str)
     {
         int n = str.length();
         if(n == 0)
-            System.out.println(prefix);
+            hashMap.put(prefix, prefix);
 
         else
         {
@@ -20,8 +28,27 @@ public class permutations {
         }
     }
 
-    public static void main(String a[])
+    public int findAnswer(String word, distinct dst)
     {
-        permutation("","ABCD");
+        int count = 0;
+        permutation("", word);
+        int size = hashMap.size();
+        ArrayList<String> arrayList = new ArrayList<String>(hashMap.values());
+        while (size > 0) {
+            System.out.println(arrayList.get(size - 1));
+            boolean ans = dst.checkifAnagram(arrayList.get(size - 1));
+            if (ans) count++;
+            size--;
+        }
+        return count;
     }
+
+    public static int main(String word) {
+        permutations pr = new permutations();
+        distinct dst = new distinct();
+        // pr.findAnswer("abba",dst);
+        int value = pr.findAnswer(word, dst);
+        return value;
+    }
+
 }
